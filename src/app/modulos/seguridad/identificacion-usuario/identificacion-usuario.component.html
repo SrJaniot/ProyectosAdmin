@@ -1,0 +1,54 @@
+
+<body class="bg-info d-flex justify-content-center align-items-center vh-100 " >
+  <div
+    class="bg-white p-5 rounded-5 text-secondary shadow"
+    style="width: 35rem"
+  >
+
+    <form [formGroup]="fGroup" class="login-form">
+      <div class="text-center fs-1 fw-bold hipervinculo2"> AdminProject </div>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">account_circle</i>
+        <input formControlName="usuario" class="validate" id="email" type="text">
+        <label for="email" data-error="wrong" data-success="right"> Usuario </label>
+        <div class="show-errors" *ngIf="obteberFormGroup['usuario'].errors && (obteberFormGroup['usuario'].dirty || obteberFormGroup['usuaro'])">
+          <strong>Este campo es obligatorio</strong>
+        </div>
+      </div>
+      <div class="input-field col s12">
+        <i class="material-icons prefix">lock_outline</i>
+        <input formControlName="clave" id="password" type="password">
+        <label for="password"> Contraseña </label>
+        <div class="show-errors" *ngIf="obteberFormGroup['clave'].errors && (obteberFormGroup['clave'].dirty || obteberFormGroup['clave'].touched)" >
+          <strong>Este campo es obligatorio</strong>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-around mt-1">
+
+        <div class="pt-1 ">
+          <a
+            href="#"
+            class="hipervinculo"
+            style="font-size: 0.9rem"
+            > ¿Olvidaste tu contraseña? </a
+          >
+        </div>
+      </div>
+      <div class="input-field col s12">
+
+          <button (click)="IdentificarUsuario()" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm boton-azul accent-4
+          "> Entrar </button>
+
+      </div>
+      <div class="d-flex gap-1 justify-content-center mt-1">
+
+
+      </div>
+      <div class="d-flex gap-1 justify-content-center mt-1">
+        <a routerLink="/inicio" class="hipervinculo"
+          > Volver </a>
+      </div>
+    </form>
+  </div>
+</body>
