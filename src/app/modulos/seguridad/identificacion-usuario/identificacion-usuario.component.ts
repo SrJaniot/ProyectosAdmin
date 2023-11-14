@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 
@@ -14,7 +17,8 @@ export class IdentificacionUsuarioComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private servicioSeguridad: SeguridadService
+    private servicioSeguridad: SeguridadService,
+    private router: Router
   ) {
 
   }
@@ -34,6 +38,7 @@ export class IdentificacionUsuarioComponent implements OnInit {
 
   IdentificarUsuario(){
 
+
     if(this.fGroup.invalid){
       alert("Formulario invalido");
 
@@ -45,9 +50,11 @@ export class IdentificacionUsuarioComponent implements OnInit {
           if(datos.CODIGO == 2){
             console.log(datos.MENSAJE);
             alert(datos.MENSAJE);
-          }else if(datos.CODIGO == 1){
-            console.log(datos.MENSAJE);
-            alert(datos.DATOS?.token);
+          }else if(this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)){
+            //console.log(localStorage.getItem('datosUsuario'));
+            alert(datos.MENSAJE);
+            //this.router.navigate(['/inicio']);
+
           }
           console.log(datos);
         },
