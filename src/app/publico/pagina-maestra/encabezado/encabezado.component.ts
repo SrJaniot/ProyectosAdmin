@@ -24,7 +24,6 @@ export class EncabezadoComponent implements OnInit {
     this.servicioSeguridad.CerrarSesion();
     alert("Sesion cerrada");
     this.router.navigate(['/inicio']);
-
     }else{
       alert("No hay sesion iniciada");
     }
