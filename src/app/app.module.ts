@@ -10,7 +10,8 @@ import {RutaNoEncontradaComponent}from './publico/errores/ruta-no-encontrada/rut
 import {ErrorDeServidorComponent} from './publico/errores/error-de-servidor/error-de-servidor.component';
 import { InicioComponent } from './publico/inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
-//import { NgToastModule } from 'ng-angular-popup';
+import { NgToastModule } from 'ng-angular-popup';
+//import { NgToastModule } from 'ng-angular-popup'; este es el modulo de popup  npm install ng-angular-popup  https://letsprogram.in/blog/647990c15960050b58aca375
 //import { NgToastModule } from 'ng-angular-popup';
 //import {ToastrModule} from 'ngx-toastr'
 
@@ -32,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-   // NgToastModule
+    NgToastModule
     //ToastrModule
 
 

@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 //import { ToastrService } from 'ngx-toastr';
 //import {NgToastService} from 'ng-angular-popup'
 
 
+
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
+
+
+
+
+
+
+
 
 @Component({
   selector: 'app-identificacion-usuario',
@@ -22,7 +31,7 @@ export class IdentificacionUsuarioComponent implements OnInit {
     private servicioSeguridad: SeguridadService,
     private router: Router,
     //private toastr: ToastrService
-    //private toastService: NgToastService
+    private toast: NgToastService
   ) {
 
   }
@@ -44,7 +53,8 @@ export class IdentificacionUsuarioComponent implements OnInit {
 
 
     if(this.fGroup.invalid){
-      alert("Formulario invalido");
+      this.toast.error({detail:"ERROR",summary:"Formulario invalido",duration:5000, position:'topCenter'});
+      //alert("Formulario invalido");
 
     }else{
       let usuario = this.obteberFormGroup['usuario'].value;
@@ -52,12 +62,15 @@ export class IdentificacionUsuarioComponent implements OnInit {
       this.servicioSeguridad.IdentificarUsuario(usuario, clave).subscribe({
         next: (datos:UsuarioModel) => {
           if(datos.CODIGO == 2){
-            console.log(datos.MENSAJE);
-            alert(datos.MENSAJE);
+            //console.log(datos.MENSAJE);
+            //alert(datos.MENSAJE);
+            this.toast.error({detail:"ERROR",summary:datos.MENSAJE,duration:5000, position:'topCenter'});
+
            // this.toastr.error(datos.MENSAJE, 'Error');
           }else if(this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)){
             //console.log(localStorage.getItem('datosUsuario'));
-            alert(datos.MENSAJE);
+            //alert(datos.MENSAJE);
+            this.toast.success({detail:"EXITO",summary:"Sesión iniciada",duration:5000, position:'topCenter'});
             //this.router.navigate(['/inicio']);
 
           }

@@ -3,6 +3,7 @@ import { UsuarioModel } from '../modelos/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
 import { Observable } from 'rxjs';
+import { NgToastService } from 'ng-angular-popup';
 
 
 @Injectable({
@@ -11,7 +12,12 @@ import { Observable } from 'rxjs';
 export class SeguridadService {
   urlBase: string = ConfiguracionRutasBackend.urlbackend;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private toast: NgToastService
+
+
+    ) { }
 
   /**
    * identificar usuario
@@ -35,9 +41,12 @@ export class SeguridadService {
     if (datosLS) {
       localStorage.removeItem('datosUsuario');
       //alert("Sesion cerrada");
+      //this.toast.success({detail:"Exito",summary:"Sesion Cerrada",duration:5000, position:'topCenter'});
+
       return true;
     } else {
       //alert("No hay sesion iniciada");
+      //this.toast.info({detail:"ERROR",summary:"No hay sesion iniciada",duration:5000, position:'topCenter'});
       return false;
     }
   }
@@ -56,12 +65,13 @@ export class SeguridadService {
     let cadena =JSON.stringify(datosUsuario.DATOS);
     let datosLS= localStorage.getItem('datosUsuario');
     if (datosLS){
-      alert("Ya existe un usuario identificado");
+      this.toast.info({detail:"ERROR",summary:"Ya existe un usuario identificado",duration:5000, position:'topCenter'});
+      //alert("Ya existe un usuario identificado");
       return false;
 
     }else{
       localStorage.setItem('datosUsuario', cadena);
-      alert("Usuario identificado");
+      //alert("Usuario identificado");
       return true;
     }
 
