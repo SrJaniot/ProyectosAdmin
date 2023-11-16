@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { UsuarioModel } from '../modelos/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { NgToastService } from 'ng-angular-popup';
 import { tokenModel } from '../modelos/token.model';
+import { usuarioValidadoModel } from '../modelos/usuarioValidado.model';
 
 
 @Injectable({
@@ -18,7 +19,10 @@ export class SeguridadService {
     private toast: NgToastService
 
 
-    ) { }
+
+    ) {
+      this.validacionDeSesion();
+    }
 
   /**
    * identificar usuario
@@ -47,7 +51,7 @@ export class SeguridadService {
 
   /**
    * CerrarSesion
-   * @returns cierra la sesion del usuario
+   * @returns cierra la sesion del usuario booleano
    */
   CerrarSesion(): boolean {
     let datosLS = localStorage.getItem('datosUsuario');
@@ -76,10 +80,6 @@ export class SeguridadService {
 
 
 
-
-
-
-
   /**
    * Almacena los datos del usuario
    * @param datosUsuario datos del usuario
@@ -94,9 +94,26 @@ export class SeguridadService {
 
     }else{
       localStorage.setItem('datosUsuario', cadena);
+      this.validacionDeSesion(); //actualiza el comportamiento del usuario es decir actualiza el observable "la barra de navegacion"
       //alert("Usuario identificado");
       return true;
     }
+
+  }
+
+
+  /**
+   * Remueve los datos del usuario
+   */
+
+
+  RemoverDatosUsuarioIdentificado(){
+    let datosUsuario=localStorage.getItem('datosUsuario');
+    if(datosUsuario){
+      localStorage.removeItem('datosUsuario');
+    }
+    this.ActualizarComportamientoUsuario(new usuarioValidadoModel());
+
 
   }
 
@@ -114,8 +131,34 @@ export class SeguridadService {
   }
 
 
+  /**
+   * Obtiene los datos de la sesion del usuario
+   * @returns datos de la sesion del usuario
+   */
+  datosUsuarioValidado = new BehaviorSubject<usuarioValidadoModel>(new usuarioValidadoModel());
+
+  ObteberDatosSesion(): Observable<usuarioValidadoModel> {
+
+    return this.datosUsuarioValidado.asObservable();
 
 
+}
+
+validacionDeSesion(){
+  let datosLS = localStorage.getItem('datosUsuario');
+  if (datosLS) {
+    let objUsuario= JSON.parse(datosLS);
+    this.ActualizarComportamientoUsuario(objUsuario);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+ActualizarComportamientoUsuario(datos:usuarioValidadoModel){
+  //console.log(this.datosUsuarioValidado);
+  return this.datosUsuarioValidado.next(datos);
+}
 
 
 

@@ -1,7 +1,4 @@
-export class UsuarioModel {
-  CODIGO?: number;
-  MENSAJE?: string;
-  DATOS?: {
+export class usuarioValidadoModel{
     id?: string;
     nombre?: string;
     telefono?: string;
@@ -10,12 +7,5 @@ export class UsuarioModel {
     email?: string;
     obs?: string;
     usuario?: string;
-    token?: string ;
-  };
-
-
-
-
-
+    token?: string = "" ;
 }
-

@@ -48,28 +48,34 @@
 <nav class="blue">
   <div class="nav-wrapper">
     <a routerLink="/inicio" class="brand-logo">AdminProject</a>
-    <a href="" class="sidenav-trigger" data-target="nav-mobile">
+    <a *ngIf="sesionActiva" href="" class="sidenav-trigger" data-target="nav-mobile">
       <i class="material-icons">menu</i>
     </a>
     <ul  class="right hide-on-med-and-down">
-      <li><a routerLink="/seguridad/login">Login</a></li>
-      <li><a routerLink="/seguridad/recuperar-clave">Cambiar clave</a></li>
-      <li><a (click)="CerrarSesion()">Cerrar Sesion</a></li>
+      <!--<li><a routerLink="/seguridad/login">Login</a></li>-->
+      <!--<li><a routerLink="/seguridad/recuperar-clave">Cambiar clave</a></li>-->
+      <li *ngIf="sesionActiva"><a routerLink="/seguridad/cerrar-sesion" >Cerrar Sesion</a></li>
     </ul>
   </div>
 </nav>
 
 <ul id="nav-mobile" class="sidenav">
-  <li><a routerLink="/seguridad/login">Login</a></li>
-  <li><a routerLink="/seguridad/recuperar-clave">Cambiar clave</a></li>
-  <li><a (click)="CerrarSesion()">Cerrar Sesion</a></li>
+  <!--<li><a routerLink="/seguridad/login">Login</a></li>-->
+  <!--<li><a routerLink="/seguridad/recuperar-clave">Cambiar clave</a></li>-->
+  <li *ngIf="sesionActiva"><a routerLink="/seguridad/cerrar-sesion">Cerrar Sesion</a></li>
 </ul>
+
+
 
 
 <script>
   $(document).ready(function(){
     $('.sidenav').sidenav();
+
   });
+
+
+
 </script>
 
 

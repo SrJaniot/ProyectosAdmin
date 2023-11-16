@@ -70,6 +70,8 @@ export class IdentificacionUsuarioComponent implements OnInit {
           }else if(this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)){
             //console.log(localStorage.getItem('datosUsuario'));
             //alert(datos.MENSAJE);
+            
+            this.router.navigate(['']);
             this.toast.success({detail:"EXITO",summary:"Sesión iniciada",duration:5000, position:'topCenter'});
             //this.router.navigate(['/inicio']);
 
