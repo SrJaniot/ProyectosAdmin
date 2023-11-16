@@ -54,7 +54,9 @@
     <ul  class="right hide-on-med-and-down">
       <!--<li><a routerLink="/seguridad/login">Login</a></li>-->
       <!--<li><a routerLink="/seguridad/recuperar-clave">Cambiar clave</a></li>-->
-      <li *ngIf="sesionActiva"><a routerLink="/seguridad/cerrar-sesion" >Cerrar Sesion</a></li>
+      <li *ngIf="sesionActiva"><a routerLink="/parametros/listar-esquemas">Esquemas</a></li>
+      <li *ngIf="sesionActiva"><a routerLink="">Usuarios</a></li>
+      <li *ngIf="sesionActiva"><a routerLink="/seguridad/cerrar-sesion">Cerrar Sesion</a></li>
     </ul>
   </div>
 </nav>
@@ -62,6 +64,8 @@
 <ul id="nav-mobile" class="sidenav">
   <!--<li><a routerLink="/seguridad/login">Login</a></li>-->
   <!--<li><a routerLink="/seguridad/recuperar-clave">Cambiar clave</a></li>-->
+  <li *ngIf="sesionActiva"><a routerLink="/parametros/listar-esquemas">Esquemas</a></li>
+  <li *ngIf="sesionActiva"><a routerLink="">Usuarios</a></li>
   <li *ngIf="sesionActiva"><a routerLink="/seguridad/cerrar-sesion">Cerrar Sesion</a></li>
 </ul>
 

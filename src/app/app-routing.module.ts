@@ -17,6 +17,11 @@ const routes: Routes = [
     path:'seguridad',
     loadChildren: () => import('./modulos/seguridad/seguridad.module').then(modulo => modulo.SeguridadModule)
   },
+  {
+    path:'parametros',
+    loadChildren: () => import('./modulos/parametros/parametros.module').then(modulo => modulo.ParametrosModule)
+
+  },
 
 
 

@@ -1,0 +1,78 @@
+
+<body class="bg-info d-flex justify-content-center align-items-center  " >
+<div  class="bg-white p-5 rounded-5 text-secondary shadow mt-5 mb-5"
+      style="width: 45rem">
+
+  <h1>Crear esquema</h1>
+
+  <form action="/form-submit" method="post">
+
+    <div class="form-group">
+      <label for="nombre_esquema">Nombre del esquema</label>
+      <input type="text" class="form-control" id="nombre_esquema" name="nombre_esquema" placeholder="Ingrese el nombre del esquema">
+    </div>
+
+    <div class="form-group">
+      <label for="departamentos_id">Departamento</label>
+      <select class="form-control" id="departamentos_id" name="departamentos_id">
+        <option value="">Seleccione un departamento</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+      <label for="municipios_id">Municipio</label>
+      <select class="form-control" id="municipios_id" name="municipios_id">
+        <option value="">Seleccione un municipio</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nombre_administrador">Nombre del administrador</label>
+      <input type="text" class="form-control" id="nombre_administrador" name="nombre_administrador" placeholder="Ingrese el nombre del administrador">
+    </div>
+
+    <div class="form-group">
+      <label for="apellidos_administrador">Apellidos del administrador</label>
+      <input type="text" class="form-control" id="apellidos_administrador" name="apellidos_administrador" placeholder="Ingrese los apellidos del administrador">
+    </div>
+
+    <div class="form-group">
+      <label for="cedula_administrador">Cédula del administrador</label>
+      <input type="text" class="form-control" id="cedula_administrador" name="cedula_administrador" placeholder="Ingrese la cédula del administrador">
+    </div>
+
+    <div class="form-group">
+      <label for="celular_administrador">Celular del administrador</label>
+      <input type="text" class="form-control" id="celular_administrador" name="celular_administrador" placeholder="Ingrese el celular del administrador">
+    </div>
+
+    <div class="form-group">
+      <label for="telefono_administrador">Teléfono del administrador</label>
+      <input type="text" class="form-control" id="telefono_administrador" name="telefono_administrador" placeholder="Ingrese el teléfono del administrador">
+    </div>
+
+    <div class="form-group">
+      <label for="email_administrador">Correo electrónico del administrador</label>
+      <input type="email" class="form-control" id="email_administrador" name="email_administrador" placeholder="Ingrese el correo electrónico del administrador">
+    </div>
+
+    <div class="form-group">
+      <label for="genero_administrador">Género del administrador</label>
+      <select class="form-control" id="genero_administrador" name="genero_administrador">
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="obs">Observaciones</label>
+      <textarea class="form-control" id="obs" name="obs" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm boton-azul">Enviar</button>
+
+  </form>
+
+</div>
+
+</body>
