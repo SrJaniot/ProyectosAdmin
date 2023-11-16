@@ -11,9 +11,8 @@ import {ErrorDeServidorComponent} from './publico/errores/error-de-servidor/erro
 import { InicioComponent } from './publico/inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
 //import { NgToastModule } from 'ng-angular-popup';
+//import { NgToastModule } from 'ng-angular-popup';
 //import {ToastrModule} from 'ngx-toastr'
-
-
 
 
 
@@ -26,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     RutaNoEncontradaComponent,
     ErrorDeServidorComponent,
     InicioComponent
+
 
   ],
   imports: [
@@ -41,3 +41,4 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
