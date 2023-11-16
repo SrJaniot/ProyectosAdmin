@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ConfiguracionRutasBackend } from '../config/configuracion.rutas.backend';
 import { Observable } from 'rxjs';
 import { NgToastService } from 'ng-angular-popup';
+import { tokenModel } from '../modelos/token.model';
 
 
 @Injectable({
@@ -32,6 +33,18 @@ export class SeguridadService {
       });
   }
 
+  CerrarSessionpost(): Observable<tokenModel> {
+    const datosUsuarioString = localStorage.getItem('datosUsuario');
+    const datosUsuarioObjeto = JSON.parse(datosUsuarioString!);
+    const token = datosUsuarioObjeto.token;
+
+
+    //console.log(token);
+    return this.http.post<tokenModel>( `${this.urlBase}cerrar_sesion_super_admin`, {
+      token: token
+      });
+  }
+
   /**
    * CerrarSesion
    * @returns cierra la sesion del usuario
@@ -39,7 +52,17 @@ export class SeguridadService {
   CerrarSesion(): boolean {
     let datosLS = localStorage.getItem('datosUsuario');
     if (datosLS) {
-      localStorage.removeItem('datosUsuario');
+      this.CerrarSessionpost().subscribe({
+        next: (datos:tokenModel) => {
+          //console.log(datos);
+          localStorage.removeItem('datosUsuario');
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      });
+
+      //cerrar_sesion_super_admin
       //alert("Sesion cerrada");
       //this.toast.success({detail:"Exito",summary:"Sesion Cerrada",duration:5000, position:'topCenter'});
 

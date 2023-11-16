@@ -74,10 +74,10 @@ export class IdentificacionUsuarioComponent implements OnInit {
             //this.router.navigate(['/inicio']);
 
           }
-          console.log(datos);
+          //console.log(datos);
         },
         error: (error) => {
-          console.log(error);
+          //console.log(error);
         }
       })
 
