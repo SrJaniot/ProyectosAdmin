@@ -10,6 +10,8 @@ import {RutaNoEncontradaComponent}from './publico/errores/ruta-no-encontrada/rut
 import {ErrorDeServidorComponent} from './publico/errores/error-de-servidor/error-de-servidor.component';
 import { InicioComponent } from './publico/inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
+//import { NgToastModule } from 'ng-angular-popup';
+//import {ToastrModule} from 'ngx-toastr'
 
 
 
@@ -29,7 +31,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+   // NgToastModule
+    //ToastrModule
+
 
   ],
   providers: [],

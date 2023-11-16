@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+//import { ToastrService } from 'ngx-toastr';
+//import {NgToastService} from 'ng-angular-popup'
 
 
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
@@ -18,7 +20,9 @@ export class IdentificacionUsuarioComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private servicioSeguridad: SeguridadService,
-    private router: Router
+    private router: Router,
+    //private toastr: ToastrService
+    //private toastService: NgToastService
   ) {
 
   }
@@ -50,6 +54,7 @@ export class IdentificacionUsuarioComponent implements OnInit {
           if(datos.CODIGO == 2){
             console.log(datos.MENSAJE);
             alert(datos.MENSAJE);
+           // this.toastr.error(datos.MENSAJE, 'Error');
           }else if(this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(datos)){
             //console.log(localStorage.getItem('datosUsuario'));
             alert(datos.MENSAJE);
