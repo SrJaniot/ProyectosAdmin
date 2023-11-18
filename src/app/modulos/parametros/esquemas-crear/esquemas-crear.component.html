@@ -1,78 +1,119 @@
+<body class="bg-info d-flex justify-content-center align-items-center ">
+  <div class="bg-white p-5 rounded-5 text-secondary shadow mt-5 mb-5" style="width: 80%">
+    <h1>Crear esquema</h1>
 
-<body class="bg-info d-flex justify-content-center align-items-center  " >
-<div  class="bg-white p-5 rounded-5 text-secondary shadow mt-5 mb-5"
-      style="width: 45rem">
+    <form [formGroup]="fGroup" >
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Contenido del formulario para la columna izquierda -->
+          <div class="form-group">
+            <label for="nombre_esquema">Nombre del esquema</label>
 
-  <h1>Crear esquema</h1>
+            <input formControlName="nombre_esquema" type="text" class="form-control" id="nombre_esquema" name="nombre_esquema" placeholder=" Nombre del esquema">
+            <div class="show-errors" *ngIf="obteberFormGroup['nombre_esquema'].errors && (obteberFormGroup['nombre_esquema'].dirty || obteberFormGroup['nombre_esquema'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
 
-  <form action="/form-submit" method="post">
+          </div>
+          <div class="form-group">
+            <label for="departamentos_id">Departamento</label>
+            <select formControlName="departamentos_id" class="form-control" id="departamentos" name="departamentos">
+              <option value="" disabled selected>Seleccione el municipio</option>
+              <option *ngFor="let departamento of departamentos" [value]="departamento.id">{{departamento.nombre}}</option>
+            </select>
+            <div class="show-errors" *ngIf="obteberFormGroup['departamentos_id'].errors && (obteberFormGroup['departamentos_id'].dirty || obteberFormGroup['departamentos_id'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <!-- Otros campos para la columna izquierda -->
+          <div class="form-group">
+            <label for="municipios_id">Municipio</label>
+            <select formControlName="municipios_id" class="form-control" id="municipios" name="municipios" >
 
-    <div class="form-group">
-      <label for="nombre_esquema">Nombre del esquema</label>
-      <input type="text" class="form-control" id="nombre_esquema" name="nombre_esquema" placeholder="Ingrese el nombre del esquema">
-    </div>
+              <option value="">SIN MUNICIPO (NULL)</option>
+              <option *ngFor="let municipio of filtroMunicipios" [value]="municipio.id">{{municipio.nombre}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="obs">Observaciones</label>
+            <textarea formControlName="obs" class="form-control" style="height: 20vh;" id="obs" name="obs" rows="3"></textarea>
+          </div>
 
-    <div class="form-group">
-      <label for="departamentos_id">Departamento</label>
-      <select class="form-control" id="departamentos_id" name="departamentos_id">
-        <option value="">Seleccione un departamento</option>
-        </select>
-    </div>
 
-    <div class="form-group">
-      <label for="municipios_id">Municipio</label>
-      <select class="form-control" id="municipios_id" name="municipios_id">
-        <option value="">Seleccione un municipio</option>
-        </select>
-    </div>
 
-    <div class="form-group">
-      <label for="nombre_administrador">Nombre del administrador</label>
-      <input type="text" class="form-control" id="nombre_administrador" name="nombre_administrador" placeholder="Ingrese el nombre del administrador">
-    </div>
 
-    <div class="form-group">
-      <label for="apellidos_administrador">Apellidos del administrador</label>
-      <input type="text" class="form-control" id="apellidos_administrador" name="apellidos_administrador" placeholder="Ingrese los apellidos del administrador">
-    </div>
 
-    <div class="form-group">
-      <label for="cedula_administrador">Cédula del administrador</label>
-      <input type="text" class="form-control" id="cedula_administrador" name="cedula_administrador" placeholder="Ingrese la cédula del administrador">
-    </div>
+        </div>
 
-    <div class="form-group">
-      <label for="celular_administrador">Celular del administrador</label>
-      <input type="text" class="form-control" id="celular_administrador" name="celular_administrador" placeholder="Ingrese el celular del administrador">
-    </div>
 
-    <div class="form-group">
-      <label for="telefono_administrador">Teléfono del administrador</label>
-      <input type="text" class="form-control" id="telefono_administrador" name="telefono_administrador" placeholder="Ingrese el teléfono del administrador">
-    </div>
 
-    <div class="form-group">
-      <label for="email_administrador">Correo electrónico del administrador</label>
-      <input type="email" class="form-control" id="email_administrador" name="email_administrador" placeholder="Ingrese el correo electrónico del administrador">
-    </div>
 
-    <div class="form-group">
-      <label for="genero_administrador">Género del administrador</label>
-      <select class="form-control" id="genero_administrador" name="genero_administrador">
-        <option value="M">Masculino</option>
-        <option value="F">Femenino</option>
-      </select>
-    </div>
 
-    <div class="form-group">
-      <label for="obs">Observaciones</label>
-      <textarea class="form-control" id="obs" name="obs" rows="3"></textarea>
-    </div>
 
-    <button type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm boton-azul">Enviar</button>
 
-  </form>
 
-</div>
+        <div class="col-md-6">
+          <!-- Contenido del formulario para la columna derecha -->
 
+          <div class="form-group">
+            <label for="nombre_administrador">Nombre del administrador</label>
+            <input formControlName="nombre_administrador" type="text" class="form-control" id="nombre_administrador" name="nombre_administrador" placeholder="Nombre del administrador">
+            <div class="show-errors" *ngIf="obteberFormGroup['nombre_administrador'].errors && (obteberFormGroup['nombre_administrador'].dirty || obteberFormGroup['nombre_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="apellidos_administrador">Apellidos del administrador</label>
+            <input formControlName="apellidos_administrador" type="text" class="form-control" id="apellidos_administrador" name="apellidos_administrador" placeholder="Apellidos del administrador">
+            <div class="show-errors" *ngIf="obteberFormGroup['apellidos_administrador'].errors && (obteberFormGroup['apellidos_administrador'].dirty || obteberFormGroup['apellidos_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cedula_administrador">Cédula del administrador</label>
+            <input formControlName="cedula_administrador"  type="tel" inputmode="numeric" pattern="[0-9]*" class="form-control" id="cedula_administrador" name="cedula_administrador" placeholder="Cédula del administrador">
+            <div class="show-errors" *ngIf="obteberFormGroup['cedula_administrador'].errors && (obteberFormGroup['cedula_administrador'].dirty || obteberFormGroup['cedula_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="celular_administrador">Celular del administrador</label>
+            <input formControlName="celular_administrador"  type="tel" inputmode="numeric" pattern="[0-9]*" class="form-control" id="celular_administrador" name="celular_administrador" placeholder="Celular del administrador">
+            <div class="show-errors" *ngIf="obteberFormGroup['celular_administrador'].errors && (obteberFormGroup['celular_administrador'].dirty || obteberFormGroup['celular_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefono_administrador">Teléfono del administrador</label>
+            <input formControlName="telefono_administrador"  type="tel" inputmode="numeric" pattern="[0-9]*" class="form-control" id="telefono_administrador" name="telefono_administrador" placeholder="Teléfono del administrador">
+
+          </div>
+          <div class="form-group">
+            <label for="email_administrador">Correo electrónico del administrador</label>
+            <input formControlName="email_administrador"  type="email" class="form-control" id="email_administrador" name="email_administrador" placeholder="Correo electrónico ">
+            <div class="show-errors" *ngIf="obteberFormGroup['email_administrador'].errors && (obteberFormGroup['email_administrador'].dirty || obteberFormGroup['email_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="genero_administrador">Género del administrador</label>
+            <select formControlName="genero_administrador"  class="form-control" id="genero_administrador" name="genero_administrador">
+              <option value="" disabled selected>Seleccione el género</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+            </select>
+            <div class="show-errors" *ngIf="obteberFormGroup['genero_administrador'].errors && (obteberFormGroup['genero_administrador'].dirty || obteberFormGroup['genero_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+
+
+          <!-- Otros campos para la columna derecha -->
+        </div>
+      </div>
+
+      <!-- Botón para enviar el formulario -->
+      <button (click)="EnviarFormulario()" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm boton-azul">Enviar</button>
+    </form>
+  </div>
 </body>
