@@ -2,6 +2,8 @@ import { Component,  OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 
+
+
 import { usuarioValidadoModel } from 'src/app/modelos/usuarioValidado.model';
 import { SeguridadService } from 'src/app/servicios/seguridad.service';
 

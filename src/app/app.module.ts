@@ -15,6 +15,12 @@ import { NgToastModule } from 'ng-angular-popup';
 //import { NgToastModule } from 'ng-angular-popup';
 //import {ToastrModule} from 'ngx-toastr'
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+
+
+
 
 
 @NgModule({
@@ -33,8 +39,12 @@ import { NgToastModule } from 'ng-angular-popup';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgToastModule
+    NgToastModule,
     //ToastrModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule
+
 
 
   ],

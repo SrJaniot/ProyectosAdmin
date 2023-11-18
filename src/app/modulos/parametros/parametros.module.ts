@@ -6,6 +6,11 @@ import { EsquemasListaComponent } from './esquemas-lista/esquemas-lista.componen
 import { EsquemasCrearComponent } from './esquemas-crear/esquemas-crear.component';
 import { EsquemasEditarComponent } from './esquemas-editar/esquemas-editar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
+
 
 
 @NgModule({
@@ -18,7 +23,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ParametrosRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+
+
+
 
   ]
 })

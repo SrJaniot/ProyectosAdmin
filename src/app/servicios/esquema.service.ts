@@ -71,6 +71,21 @@ export class EsquemaService {
     })
   }
 
+  // TraerEsquemas() : Observable<RespuestaServer> {
+
+  TraerEsquemas() : Observable<RespuestaServer> {
+    const datosUsuario = localStorage.getItem('datosUsuario')
+    const datosUsuarioObjeto = JSON.parse(datosUsuario!);
+    const token = datosUsuarioObjeto.token;
+    return this.http.post(`${this.urlBase}obtener_esquemas`,
+     {
+      token: token,
+     });
+
+    }
+
+
+
 
 
 

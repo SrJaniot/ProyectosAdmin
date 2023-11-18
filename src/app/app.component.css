@@ -1,0 +1,5 @@
+.router-container {
+  min-height: calc(100vh - 200px); /* Establece un tamaño mínimo para el router-outlet */
+  /* Ajusta el tamaño mínimo según sea necesario */
+  /* Por ejemplo, aquí se resta 200px de la altura total de la ventana (viewport height) */
+}

@@ -1,3 +1,32 @@
 a {
   text-decoration: none;
 }
+
+/* Estilos para los submenús */
+.submenu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  /* Ajusta los estilos de los subbotones según sea necesario */
+}
+
+/* Mostrar el submenú al pasar el mouse o al hacer clic */
+li:hover .submenu,
+li:focus .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+}
+
+.menu-item.active .submenu {
+  display: block;
+}
+
+.menu-item.active + .menu-item {
+  margin-top: 40px; /* Ajusta el espacio entre elementos según sea necesario */
+}
+
+
+

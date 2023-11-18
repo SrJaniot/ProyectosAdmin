@@ -1,0 +1,38 @@
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Estilos para pantallas de escritorio */
+@media screen and (min-width: 768px) {
+  .desktop-container {
+    background-color: #f2f2f2; /* Color de fondo para pantallas de escritorio */
+    padding: 20px; /* Ajusta el espaciado según sea necesario */
+  }
+
+  .table-container {
+    max-width: calc(100% - 40px); /* Ajusta el ancho de la tabla dentro del contenedor */
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    background-color: white; /* Fondo blanco para la tabla */
+    border-radius: 8px; /* Añade bordes redondeados al contenedor */
+    overflow-x: auto;
+  }
+}
+
+.colorfondo{
+  background-color: #eeebeb;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
