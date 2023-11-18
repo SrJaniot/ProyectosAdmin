@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { EsquemasListaComponent } from './esquemas-lista/esquemas-lista.component';
 import { EsquemasCrearComponent } from './esquemas-crear/esquemas-crear.component';
 import { EsquemasEditarComponent } from './esquemas-editar/esquemas-editar.component';
+import { UsuarioCrearComponent } from './usuario-crear/usuario-crear.component';
+import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
 
 const routes: Routes = [
   {
@@ -16,7 +18,17 @@ const routes: Routes = [
   {
     path: 'editar-esquemas',
     component: EsquemasEditarComponent
+  },
+  {
+    path:'crear-usuarios',
+    component: UsuarioCrearComponent
+  },
+  {
+    path:'listar-usuarios',
+    component: UsuarioListaComponent
   }
+
+
 
 
 

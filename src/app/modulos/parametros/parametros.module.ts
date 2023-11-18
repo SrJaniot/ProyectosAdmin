@@ -8,6 +8,8 @@ import { EsquemasEditarComponent } from './esquemas-editar/esquemas-editar.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { UsuarioCrearComponent } from './usuario-crear/usuario-crear.component';
+import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
 
 
 
@@ -17,7 +19,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   declarations: [
     EsquemasListaComponent,
     EsquemasCrearComponent,
-    EsquemasEditarComponent
+    EsquemasEditarComponent,
+    UsuarioCrearComponent,
+    UsuarioListaComponent
   ],
   imports: [
     CommonModule,

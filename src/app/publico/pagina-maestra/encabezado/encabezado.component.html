@@ -60,10 +60,10 @@
         </ul>
       </li>
       <li *ngIf="sesionActiva">
-        <a class="dropdown-trigger" href="#!" data-target="dropdown1">Usuarios<i class="material-icons right">arrow_drop_down</i></a>
-        <ul id="dropdown1" class="dropdown-content">
-          <li><a routerLink="/parametros/listar-esquemas">Listar Usuarios</a></li>
-          <li><a routerLink="/parametros/crear-esquemas">Crear Usuarios</a></li>
+        <a class="dropdown-trigger" href="#!" data-target="dropdown2">Usuarios<i class="material-icons right">arrow_drop_down</i></a>
+        <ul id="dropdown2" class="dropdown-content">
+          <li><a routerLink="/parametros/listar-usuarios">Listar Usuarios</a></li>
+          <li><a routerLink="/parametros/crear-usuarios">Crear Usuarios</a></li>
         </ul>
       </li>
       <li *ngIf="sesionActiva"><a routerLink="/seguridad/cerrar-sesion">Cerrar Sesion</a></li>
@@ -102,13 +102,13 @@
       <div class="collapsible-header"><i class="material-icons">people</i>Usuarios</div>
 
       <div class="collapsible-body center" *ngIf="sesionActiva">
-        <a routerLink="/parametros/crear-esquemas">
+        <a routerLink="/parametros/crear-usuarios">
           <i class="material-icons">add</i>
            Agregar Usuarios
         </a>
       </div>
       <div class="collapsible-body center" *ngIf="sesionActiva">
-        <a routerLink="/parametros/listar-esquemas">
+        <a routerLink="/parametros/listar-usuarios">
           <i class="material-icons">format_list_bulleted</i>
            Mostrar Usuarios
         </a>

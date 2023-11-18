@@ -1,0 +1,104 @@
+<div class="bg-info d-flex justify-content-center align-items-center ">
+  <div class="bg-white p-5 rounded-5 text-secondary shadow mt-5 mb-5" style="width: 80%">
+    <h1>Crear usuario</h1>
+
+    <form [formGroup]="fGroup" >
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Contenido del formulario para la columna izquierda -->
+          <div class="form-group">
+            <label for="nombre_usuario">Nombre del usuario</label>
+
+            <input formControlName="nombre_usuario" type="text" class="form-control" id="nombre_esquema" name="nombre_esquema" placeholder=" Nombre del usuario">
+            <div class="show-errors" *ngIf="obteberFormGroup['nombre_usuario'].errors && (obteberFormGroup['nombre_usuario'].dirty || obteberFormGroup['nombre_usuario'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="contraseña">Contraseña</label>
+            <input formControlName="contraseña" type="password" class="form-control" id="nombre_esquema" name="nombre_esquema" placeholder=" Contraseña  ">
+            <div class="show-errors" *ngIf="obteberFormGroup['contraseña'].errors && (obteberFormGroup['contraseña'].dirty || obteberFormGroup['contraseña'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="estado_id">Estado</label>
+            <select formControlName="estado_id" class="form-control" id="departamentos" name="departamentos">
+              <option value="" disabled selected  [selected]="true">Seleccione el estado</option>
+              <option value="1">Activo</option>
+              <option value="2">Vacaciones</option>
+              <option value="3">Suspendido</option>
+
+            </select>
+            <div class="show-errors" *ngIf="obteberFormGroup['estado_id'].errors && (obteberFormGroup['estado_id'].dirty || obteberFormGroup['estado_id'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <!-- Otros campos para la columna izquierda -->
+
+          <div class="form-group">
+            <label for="obs">Observaciones</label>
+            <textarea formControlName="obs" class="form-control" style="height: 20vh;" id="obs" name="obs" rows="3"></textarea>
+          </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="col-md-6">
+          <!-- Contenido del formulario para la columna derecha -->
+
+          <div class="form-group">
+            <label for="nombre_administrador">Nombre completo</label>
+            <input formControlName="nombre_administrador" type="text" class="form-control" id="nombre_administrador" name="nombre_administrador" placeholder="Nombre completo">
+            <div class="show-errors" *ngIf="obteberFormGroup['nombre_administrador'].errors && (obteberFormGroup['nombre_administrador'].dirty || obteberFormGroup['nombre_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="celular_administrador">Celular del administrador</label>
+            <input formControlName="celular_administrador"  type="tel" inputmode="numeric" pattern="[0-9]*" class="form-control" id="celular_administrador" name="celular_administrador" placeholder="Celular del administrador">
+            <div class="show-errors" *ngIf="obteberFormGroup['celular_administrador'].errors && (obteberFormGroup['celular_administrador'].dirty || obteberFormGroup['celular_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefono_administrador">Teléfono del administrador</label>
+            <input formControlName="telefono_administrador"  type="tel" inputmode="numeric" pattern="[0-9]*" class="form-control" id="telefono_administrador" name="telefono_administrador" placeholder="Teléfono del administrador">
+
+          </div>
+          <div class="form-group">
+            <label for="email_administrador">Correo electrónico del administrador</label>
+            <input formControlName="email_administrador"  type="email" class="form-control" id="email_administrador" name="email_administrador" placeholder="Correo electrónico ">
+            <div class="show-errors" *ngIf="obteberFormGroup['email_administrador'].errors && (obteberFormGroup['email_administrador'].dirty || obteberFormGroup['email_administrador'].touched)" >
+              <strong>Este campo es obligatorio</strong>
+            </div>
+          </div>
+
+
+
+          <!-- Otros campos para la columna derecha -->
+        </div>
+      </div>
+
+      <!-- Botón para enviar el formulario -->
+      <button (click)="EnviarFormulario()" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm boton-azul">Enviar</button>
+    </form>
+  </div>
+</div>

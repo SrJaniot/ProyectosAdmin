@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     MenuLateralComponent,
     RutaNoEncontradaComponent,
     ErrorDeServidorComponent,
-    InicioComponent
+    InicioComponent,
+
 
 
   ],
