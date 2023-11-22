@@ -4,11 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { NgToastService } from 'ng-angular-popup';
 import { Observable, observable } from 'rxjs';
 import { RespuestaServer } from '../modelos/RespuestaServer';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
-  urlBase: string = ConfiguracionRutasBackend.urlbackend;
+  private urlBase: string = ConfiguracionRutasBackend.urlbackend;
+
 
   constructor(
     private http: HttpClient,
@@ -49,6 +51,8 @@ export class UsuariosService {
      });
 
     }
+
+
 
 
 

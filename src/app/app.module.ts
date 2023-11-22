@@ -11,6 +11,7 @@ import {ErrorDeServidorComponent} from './publico/errores/error-de-servidor/erro
 import { InicioComponent } from './publico/inicio/inicio.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup';
+
 //import { NgToastService } from 'ng-toast';
 //import { NgToastModule } from 'ng-angular-popup'; este es el modulo de popup  npm install ng-angular-popup  https://letsprogram.in/blog/647990c15960050b58aca375
 //import { NgToastModule } from 'ng-angular-popup';
@@ -19,6 +20,8 @@ import { NgToastModule } from 'ng-angular-popup';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+
+
 
 
 
@@ -34,6 +37,7 @@ import { MatIconModule } from '@angular/material/icon';
     RutaNoEncontradaComponent,
     ErrorDeServidorComponent,
     InicioComponent,
+
 
 
 

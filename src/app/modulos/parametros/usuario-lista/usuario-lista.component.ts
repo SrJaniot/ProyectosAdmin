@@ -12,11 +12,11 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
   styleUrls: ['./usuario-lista.component.css']
 })
 export class UsuarioListaComponent {
-  displayedColumns: string[] = ['id','nombre','telefono','celular','email','estado','obs','usuario','clave' ];
+  displayedColumns: string[] = ['id','nombre','telefono','celular','email','estado','obs','usuario','clave','update' ];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
-    private servicio: UsuariosService
+    private servicio: UsuariosService,
   ) {
 
   }
@@ -42,6 +42,8 @@ export class UsuarioListaComponent {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+ 
 
 
 

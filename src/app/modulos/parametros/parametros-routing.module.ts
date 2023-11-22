@@ -5,6 +5,7 @@ import { EsquemasCrearComponent } from './esquemas-crear/esquemas-crear.componen
 import { EsquemasEditarComponent } from './esquemas-editar/esquemas-editar.component';
 import { UsuarioCrearComponent } from './usuario-crear/usuario-crear.component';
 import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
+import { UsuarioEditarComponent } from './usuario-editar/usuario-editar.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'listar-usuarios',
     component: UsuarioListaComponent
+  },
+  {
+    path:'editar-usuarios/:id',
+    component: UsuarioEditarComponent
   }
 
 

@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "poryectosadmin:build:production"
+              "buildTarget": "poryectosadmin:build:production"
             },
             "development": {
-              "browserTarget": "poryectosadmin:build:development"
+              "buildTarget": "poryectosadmin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "poryectosadmin:build"
+            "buildTarget": "poryectosadmin:build"
           }
         },
         "test": {

@@ -10,6 +10,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UsuarioCrearComponent } from './usuario-crear/usuario-crear.component';
 import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
+import { UsuarioEditarComponent } from './usuario-editar/usuario-editar.component';
+
+
 
 
 
@@ -21,7 +24,10 @@ import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
     EsquemasCrearComponent,
     EsquemasEditarComponent,
     UsuarioCrearComponent,
-    UsuarioListaComponent
+    UsuarioListaComponent,
+    UsuarioEditarComponent
+
+
   ],
   imports: [
     CommonModule,
@@ -30,6 +36,7 @@ import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
+
 
 
 
