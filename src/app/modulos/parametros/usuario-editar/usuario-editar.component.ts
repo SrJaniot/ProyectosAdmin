@@ -34,7 +34,7 @@ export class UsuarioEditarComponent implements OnInit  {
 
     BuscarRegistro(){
       const elementId = this.rutaActiva.snapshot.paramMap.get('id');
-      console.log(elementId);
+      //console.log(elementId);
       this.servicio.TraerUsuarioPorId(elementId!).subscribe(response => {
 
         if (response.CODIGO === 1) {
@@ -102,21 +102,21 @@ export class UsuarioEditarComponent implements OnInit  {
         let telefono_administrador = this.obteberFormGroup['telefono_administrador'].value;
         let email_administrador = this.obteberFormGroup['email_administrador'].value;
         let obs = this.obteberFormGroup['obs'].value;
-        console.log(id);
-        console.log(nombre_usuario);
-        console.log(estado_id);
-        console.log(nombre_administrador);
-        console.log(celular_administrador);
-        console.log(telefono_administrador);
-        console.log(email_administrador);
-        console.log(obs);
+        //console.log(id);
+        //console.log(nombre_usuario);
+        //console.log(estado_id);
+        //console.log(nombre_administrador);
+        //console.log(celular_administrador);
+        //console.log(telefono_administrador);
+        //console.log(email_administrador);
+        //console.log(obs);
 
 
 
         this.servicio.EditarUsuario(id, nombre_administrador, estado_id, telefono_administrador, celular_administrador, email_administrador, nombre_usuario, obs).subscribe({
           next: (datos) => {
             if(datos.CODIGO == 1){
-              console.log(datos);
+              //console.log(datos);
               this.toast.success({detail:"EXITO",summary:datos.MENSAJE,duration:5000, position:'topCenter'});
               this.router.navigate(['/parametros/listar-usuarios']);
             }else{
