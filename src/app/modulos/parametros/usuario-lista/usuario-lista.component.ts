@@ -25,7 +25,7 @@ export class UsuarioListaComponent {
   ngOnInit() {
     this.servicio.TraerUsuario().subscribe(data => {
       if (data.CODIGO === 1) {
-        console.log(data.DATOS);
+        //console.log(data.DATOS);
         this.dataSource = new MatTableDataSource(data.DATOS);
         this.dataSource.paginator = this.paginator;
 
@@ -43,7 +43,7 @@ export class UsuarioListaComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
- 
+
 
 
 

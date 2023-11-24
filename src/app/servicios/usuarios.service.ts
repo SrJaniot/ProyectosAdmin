@@ -53,6 +53,44 @@ export class UsuariosService {
     }
 
 
+  TraerUsuarioPorId(id:string) : Observable<RespuestaServer> {
+    const datosUsuario = localStorage.getItem('datosUsuario')
+    const datosUsuarioObjeto = JSON.parse(datosUsuario!);
+    const token = datosUsuarioObjeto.token;
+    return this.http.post(`${this.urlBase}obtener_usuarios`,
+     {
+      token: token,
+      id: id,
+     });
+
+    }
+
+    EditarUsuario(id:string, nombre_administrador :string ,estado_id:string, telefono_administrador:string, celular_administrador:string,
+      email_administrador:string, nombre_usuario:string, obs:string) : Observable<RespuestaServer> {
+      const datosUsuario = localStorage.getItem('datosUsuario')
+      const datosUsuarioObjeto = JSON.parse(datosUsuario!);
+      const token = datosUsuarioObjeto.token;
+      return this.http.post(`${this.urlBase}editar_usuario`,
+       {
+        token: token,
+        id: id,
+        nombre: nombre_administrador,
+        telefono: telefono_administrador,
+        celular: celular_administrador,
+        estado: estado_id,
+        email: email_administrador,
+        usuario: nombre_usuario,
+        clave: "",
+        obs: obs,
+      })
+    }
+
+
+
+
+
+
+
 
 
 
