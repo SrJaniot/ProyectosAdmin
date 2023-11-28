@@ -50,10 +50,11 @@ export class UsuarioCrearComponent {
         celular_administrador: ['', [Validators.required, this.onlyNumbers ]],
         telefono_administrador: ['' , [ this.onlyNumbers ]],
         email_administrador: ['', [Validators.required, Validators.email,]],
-        obs: [''],
+        obs: ['', [Validators.required,]],
 
       });
     }
+    
 
 
 
