@@ -57,7 +57,7 @@ export class EncabezadoComponent implements OnInit {
     this.servicioSeguridad.CerrarSesion();
     this.router.navigate(['/inicio']);
     this.toast.success({detail:"Exito",summary:"Sesión Cerrada",duration:5000, position:'topCenter'});
-
+    
     //alert("Sesion cerrada");
 
     }else{

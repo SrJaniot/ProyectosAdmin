@@ -30,8 +30,10 @@ export class EsquemaService {
     const datosUsuario = localStorage.getItem('datosUsuario')
     const datosUsuarioObjeto = JSON.parse(datosUsuario!);
     const token = datosUsuarioObjeto.token;
-    return this.http.post(`${this.urlBase}obtener_departamentos`,
-     { token: token,
+    return this.http.post(`${this.urlBase}obtener_entidades`,
+     {
+      token: token,
+      tipos_entidad_id: 3,
 
     })
   }
@@ -40,14 +42,17 @@ export class EsquemaService {
     const datosUsuario = localStorage.getItem('datosUsuario')
     const datosUsuarioObjeto = JSON.parse(datosUsuario!);
     const token = datosUsuarioObjeto.token;
-    return this.http.post(`${this.urlBase}obtener_municipios`,
-     { token: token,
+    return this.http.post(`${this.urlBase}obtener_entidades`,
+     {
+       token: token,
+       tipos_entidad_id: 4,
+
 
 
     })
   }
 
-  CrearEsquema( nombre_esquema:string , departamentos_id:string,municipios_id:string,
+  CrearEsquema( nombre_esquema:string , entidades_id:string,
     nombre_administrador:string,apellidos_administrador:string,cedula_administrador:string,
     celular_administrador:string,telefono_administrador:string,email_administrador:string,
     genero_administrador:string,obs:string) : Observable<RespuestaServer> {
@@ -58,8 +63,7 @@ export class EsquemaService {
      {
       token: token,
       nombre_esquema: nombre_esquema,
-      departamentos_id: departamentos_id,
-      municipios_id: municipios_id,
+      entidades_id: entidades_id,
       nombre_administrador: nombre_administrador,
       apellidos_administrador: apellidos_administrador,
       cedula_administrador: cedula_administrador,

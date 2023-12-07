@@ -54,7 +54,7 @@ export class UsuarioCrearComponent {
 
       });
     }
-    
+
 
 
 
@@ -77,6 +77,10 @@ export class UsuarioCrearComponent {
       }
       return null;
     }
+
+
+
+
 
 
     EnviarFormulario(){

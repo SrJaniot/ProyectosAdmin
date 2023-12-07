@@ -32,18 +32,20 @@ export class EsquemasCrearComponent {
       this.esquemaService.TraerDepartamentos().subscribe(response => {
         if (response.CODIGO === 1) {
           this.departamentos = response.DATOS!;
-         // console.log(this.departamentos);
+          //console.log(this.departamentos);
+          //console.log(this.departamentos[0].id);
         }
       });
       this.esquemaService.TraerMunicipios().subscribe(response => {
         if (response.CODIGO === 1) {
           this.municipios = response.DATOS!;
+          //console.log(this.municipios);
         }
       });
       this.construirformulario();
 
       //escuchar cambios en el select de departamentos
-      this.fGroup.get('departamentos_id')?.valueChanges.subscribe(id => {
+      this.fGroup.get('entidades_id')?.valueChanges.subscribe(id => {
         this.onDepartamentoChange(id);
       });
 
@@ -62,7 +64,7 @@ export class EsquemasCrearComponent {
       this.fGroup = this.fb.group({
 
         nombre_esquema: ['',[Validators.required, ]],
-        departamentos_id: ['', [Validators.required,]],
+        entidades_id: ['', [Validators.required,]],
         municipios_id: [''],
         nombre_administrador: ['', [Validators.required,]],
         apellidos_administrador: ['', [Validators.required,]],
@@ -83,8 +85,9 @@ export class EsquemasCrearComponent {
 
     onDepartamentoChange(id: number | null): void {
       let idString = id?.toString();
+      //console.log(idString);
       if (id !== null) {
-        this.filtroMunicipios = this.municipios.filter(municipio => municipio.departamentos_id === idString);;
+        this.filtroMunicipios = this.municipios.filter(municipio => municipio.entidades_id === idString);;
       }
     }
 
@@ -112,7 +115,7 @@ export class EsquemasCrearComponent {
 
       }else{
         let nombre_esquema = this.obteberFormGroup['nombre_esquema'].value;
-        let departamentos_id = this.obteberFormGroup['departamentos_id'].value;
+        let departamentos_id = this.obteberFormGroup['entidades_id'].value;
         let municipios_id = this.obteberFormGroup['municipios_id'].value;
         let nombre_administrador = this.obteberFormGroup['nombre_administrador'].value;
         let apellidos_administrador = this.obteberFormGroup['apellidos_administrador'].value;
@@ -122,7 +125,7 @@ export class EsquemasCrearComponent {
         let email_administrador = this.obteberFormGroup['email_administrador'].value;
         let genero_administrador = this.obteberFormGroup['genero_administrador'].value;
         let obs = this.obteberFormGroup['obs'].value;
-        //console.log(nombre_esquema);
+       // console.log(nombre_esquema);
         //console.log( departamentos_id);
         //console.log( municipios_id);
         //console.log(nombre_administrador);
@@ -147,10 +150,24 @@ export class EsquemasCrearComponent {
         //console.log(nombreEsquemaFinal);
         //quitar los espacios de nombreEsquemaFinal
         nombreEsquemaFinal=nombreEsquemaFinal.replace(/\s/g, '');
+        //poner en minuscula nombreEsquemaFinal
+        nombreEsquemaFinal=nombreEsquemaFinal.toLowerCase();
+
         //console.log(nombreEsquemaFinal);
 
+        let entidades_id='';
+        //preguntar si es departamento o municipio
+        if (municipios_id != "" || null) {
+           entidades_id = municipios_id;
+
+        }else{
+           entidades_id = departamentos_id;
+        }
+
+        //console.log(entidades_id);
+
         //llamado al servicio para crear el esquema
-        this.esquemaService.CrearEsquema(nombreEsquemaFinal, departamentos_id, municipios_id,
+        this.esquemaService.CrearEsquema(nombreEsquemaFinal, entidades_id,
           nombre_administrador, apellidos_administrador, cedula_administrador,
           celular_administrador, telefono_administrador, email_administrador,
           genero_administrador, obs).subscribe({

@@ -16,12 +16,12 @@
 
           </div>
           <div class="form-group">
-            <label for="departamentos_id">Departamento</label>
-            <select formControlName="departamentos_id" class="form-control" id="departamentos" name="departamentos">
+            <label for="entidades_id">Departamento</label>
+            <select formControlName="entidades_id" class="form-control" id="departamentos" name="departamentos">
               <option value="" disabled selected>Seleccione el municipio</option>
               <option *ngFor="let departamento of departamentos" [value]="departamento.id">{{departamento.nombre}}</option>
             </select>
-            <div class="show-errors" *ngIf="obteberFormGroup['departamentos_id'].errors && (obteberFormGroup['departamentos_id'].dirty || obteberFormGroup['departamentos_id'].touched)" >
+            <div class="show-errors" *ngIf="obteberFormGroup['entidades_id'].errors && (obteberFormGroup['entidades_id'].dirty || obteberFormGroup['entidades_id'].touched)" >
               <strong>Este campo es obligatorio</strong>
             </div>
           </div>
